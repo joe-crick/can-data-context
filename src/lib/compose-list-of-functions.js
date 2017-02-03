@@ -4,15 +4,16 @@ import Maybe from 'data.maybe';
 import compose from 'ramda/src/compose';
 
 export default middleWareSet => {
-	const functions = [];
+	let functions = [];
 	if (isDefineList(middleWareSet) || 'slice' in middleWareSet) {
-		let len = 0;
-		let fn = middleWareSet[len];
-		while (fn) {
-			fn = middleWareSet[len];
-			if (fn) functions[len] = fn;
-			len++;
-		}
+		// let len = 0;
+		// let fn = middleWareSet[len];
+		// while (fn) {
+		// 	fn = middleWareSet[len];
+		// 	if (fn) functions[len] = fn;
+		// 	len++;
+		// }
+		functions = middleWareSet;
 	} else {
 		functions.push(middleWareSet)
 	}

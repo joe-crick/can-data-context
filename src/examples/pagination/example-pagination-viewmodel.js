@@ -7,7 +7,21 @@ export default DefineMap.extend({
 	 * @description A set of table filter functions.
 	 */
 	tableFilters: {
-		type: '*'
+		type: '*',
+		value: []
+	},
+	/**
+	 * @property {Array | DefineList} pagination.viewmodel.tableFilters
+	 * @description A set of table filter functions.
+	 */
+	setTableFilters: {
+		set(newVal){
+			if ('length' in newVal && newVal.length > 0) {
+				this.tableFilters.push(newVal[0]);
+			}
+			return {};
+		},
+		value: {}
 	},
 	/**
 	 * @property {Array | DefineList} pagination.viewmodel.tableClasses

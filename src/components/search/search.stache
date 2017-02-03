@@ -1,0 +1,1 @@
+<input type="text" ({value})="searchTerm" class="can-table-search">

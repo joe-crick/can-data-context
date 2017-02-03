@@ -18,7 +18,8 @@ const getFilterMiddleware = middleWareSet => {
 	return Either.fromNullable(middleWareSet)
 		.map(composeMiddleware)
 		.fold(noOp, fn => Box(function filterRows (rows) {
-			return rows.filter(fn.get())
+			const newRows =  rows.filter(fn.get())
+			return newRows;
 		}));
 };
 
