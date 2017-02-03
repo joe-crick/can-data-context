@@ -17,7 +17,7 @@ export default DefineMap.extend({
 	setTableFilters: {
 		set(newVal){
 			if ('length' in newVal && newVal.length > 0) {
-				this.tableFilters.push(newVal[0]);
+				this.tableFilters = this.tableFilters.concat(newVal[0]);
 			}
 			return {};
 		},

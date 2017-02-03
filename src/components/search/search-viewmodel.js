@@ -1,16 +1,23 @@
 import DefineMap from 'can-define/map/';
-import List from 'can-define/List/';
-import batch from 'can-event/batch/'
 
-const filterSearch = searchTerm => function(row) {
-	return row;
+const filterSearch = searchTerm => function (row) {
+	let isSearchMatch = false;
+	if (!searchTerm) {
+		isSearchMatch = true;
+	} else {
+		isSearchMatch = row.cells.filter(function (cell) {
+				return cell.content.indexOf(searchTerm) > -1;
+			}).length > 0;
+	}
+
+	return isSearchMatch;
 };
 
 export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return new List([filterSearch(this.lowerBounds)(this.upperBounds)])
+			return [filterSearch(this.searchTerm)];
 		}
 	},
 	searchTerm: {

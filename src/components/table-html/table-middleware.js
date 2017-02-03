@@ -16,9 +16,12 @@ const getFormatMiddleware = middleWareSet => {
 
 const getFilterMiddleware = middleWareSet => {
 	return Either.fromNullable(middleWareSet)
-		.map(composeMiddleware)
 		.fold(noOp, fn => Box(function filterRows (rows) {
-			const newRows =  rows.filter(fn.get())
+			let newRows = rows;
+			// Run each filter in succession
+			fn.forEach(function(func){
+				newRows =  rows.filter(func);
+			});
 			return newRows;
 		}));
 };

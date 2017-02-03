@@ -1,5 +1,4 @@
 import DefineMap from 'can-define/map/';
-import List from 'can-define/List/';
 import batch from 'can-event/batch/'
 
 const filterPagination = lowerBounds => upperBounds => function(row, index) {
@@ -10,7 +9,7 @@ export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return new List([filterPagination(this.lowerBounds)(this.upperBounds)])
+			return [filterPagination(this.lowerBounds)(this.upperBounds)];
 		}
 	},
 	lowerBounds: {

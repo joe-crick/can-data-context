@@ -3,7 +3,6 @@ import List from 'can-define/list/';
 import {headerCellMiddleware, bodyCellMiddleware, tableRowsMiddleware} from './table-middleware';
 import {noOp, identity} from 'can-table/lib/utils';
 import arrayClone from 'clone';
-import cloneList from 'can-table/lib/clone-list';
 
 export default DefineMap.extend({
 	displayRows: {
