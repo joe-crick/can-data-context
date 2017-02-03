@@ -1,0 +1,155 @@
+<script type="text/stache" class="demo" can-autorender>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <can-import from="can-table/components/table-html/" />
+    <h1>Table Component</h1>
+
+    <style>
+      .table-container {
+        width: 90%;
+        margin-left: 20px;
+      }
+    </style>
+
+
+    <div class="table-container">
+        <can-table-html class="can-table"
+          {headings}="demoVm.headings"
+          {rows}="demoVm.rows"
+          {tableClasses}="demoVm.tableClasses"
+          {headerClasses}="demoVm.headerClasses"
+          {cellClasses}="demoVm.cellClasses"
+          {headerMiddleware}="demoVm.headerMiddleware"
+          {cellMiddleware}="@demoVm.cellMiddleware"
+          {tableFilters}="demoVm.tableFilters"></can-table-html>
+
+         <div class="action-buttons pull-right">
+           <button class="btn btn-standard" ($click)="demoVm.prev">Prev</button>
+           <button class="btn btn-standard" ($click)="demoVm.next">Next</button>
+        </div>
+    </div>
+
+  </div>
+
+</script>
+
+<script src="../../../node_modules/steal/steal.js" main="@empty">
+	import can from 'can';
+	import Map from 'can-define/map/';
+	import List from 'can-define/List/';
+	import tableData from 'can-table/components/table-test-data';
+	import 'can/view/autorender/';
+    import filterPagination from 'can-table/components/table-html/filters/filter-pagination';
+    import batch from 'can-event/batch/'
+
+
+	const DemoVM = Map.extend({
+		headings: {
+			type: '*'
+		},
+		rows: {
+			type: '*'
+		},
+		tableClasses: {
+			Type: List,
+			value: [
+				'table',
+				'table-striped',
+				'table-bordered',
+				'table-hover',
+				'table-sm',
+				'table-responsive'
+			]
+		},
+		cellClasses: {
+			Type: List,
+			value: [
+				'table-cell'
+			]
+		},
+		headerClasses: {
+			Type: List,
+			value: [
+				'table-header'
+			]
+		},
+		headerMiddleware: {
+			type: List,
+			value: [
+				headerCell => {
+					const heading = headerCell.heading;
+					headerCell.heading = heading.indexOf('One') > -1
+						? `<span title="${heading}">${heading}</span>`
+						: headerCell.heading;
+					return headerCell
+				}
+				,
+				headerCell => {
+					const heading = headerCell.heading;
+					headerCell.heading = heading.indexOf('Two') > -1
+						? 'Was Two'
+						: headerCell.heading;
+					return headerCell
+				}
+			]
+		},
+		// TODO: This seems an awkward way of passing the function. Is there a better way? If not, then require List.
+		cellMiddleware: {
+			value: () => () => function (bodyCell) {
+				bodyCell.content = `<span title="${bodyCell.content}">${bodyCell.content}</span>`;
+				return bodyCell;
+			}
+		},
+        tableFilters: {
+            type: List,
+            // Dynamic filter that reapplies when data changes
+            get() {
+                return new List([filterPagination(this.lowerBounds)(this.upperBounds)])
+            }
+        },
+        lowerBounds: {
+			type: 'number',
+            value: 0
+        },
+        upperBounds: {
+			type: 'number',
+            value: 5
+        },
+        rowCount: {
+			get() {
+				return this.rows.length;
+            }
+        },
+        next() {
+            const lower = this.lowerBounds + 5;
+            const upper = this.rowCount;
+            if(lower < upper) {
+				batch.start();
+                this.lowerBounds = lower;
+				this.upperBounds+= 5;
+				batch.stop();
+            }
+        },
+        prev() {
+			const lower = this.lowerBounds - 5;
+			if(lower > 0) {
+				batch.start();
+				this.lowerBounds = lower;
+				this.upperBounds += -5;
+				batch.stop();
+			}
+        }
+	});
+
+	const vm = can.viewModel('.demo');
+
+	vm.demoVm = new DemoVM({
+		headings: tableData.headings,
+		rows: tableData.rows
+	});
+
+	window.can = can;
+
+</script>
+
+
+

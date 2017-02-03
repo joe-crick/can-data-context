@@ -1,0 +1,76 @@
+@import '../autocomplete/autocomplete.less';
+
+can-table-grid-search {
+    display: block;
+
+    .input-group {
+        .input-reset {
+            color: @coral;
+            font-size: 17px;
+            padding-top: 5px;
+        }
+    }
+
+    .input-group.disabled {
+        opacity: .3;
+    }
+
+    .icon-search,
+    .icon-chevron {
+        color: @coral;
+    }
+
+    .form-control {
+        border-right: none;
+        border-left: none;
+    }
+
+    .search-text {
+        padding-right: @input-height-base;
+    }
+
+    .open > .dropdown-toggle.btn-secondary {
+        box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    }
+
+    .open > .dropdown-menu {
+        min-width: 200px;
+    }
+
+    .dropdown-menu {
+        li.selected {
+            .field-select {
+                .icon-selected {
+                    float: right;
+                    margin-top: 3px;
+                    color: @coral;
+                }
+            }
+        }
+    }
+
+    .search-container:before {
+        display: block;
+        width: 14px;
+        height: 14px;
+        content: "\e610";
+        font-family: 'nemo';
+        background-position: -48px 0;
+        position: absolute;
+        top:8px;
+        left:8px;
+        opacity: .5;
+        z-index: 10;
+    }
+
+    .simple-search {
+        padding-left: 30px;
+        border-left: 1px solid @pacific;
+    }
+
+    // Sets proper border style when drop-down menu is present
+    > .input-group:not(.search-container) .search-text {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+    }
+}

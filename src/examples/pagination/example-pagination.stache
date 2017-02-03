@@ -1,0 +1,15 @@
+<can-import from="can-table/components/pagination/"/>
+<can-import from="can-table/components/table-html/"/>
+
+<can-table-pagination
+        class="pagination"
+        {row-count}="rowCount"
+        ({row-display-limit})="rowDisplayLimit"
+        ({current-page})="currentPage"/>
+
+<can-table-html
+        {row-count}="rowCount"
+        ({row-display-limit})="rowDisplayLimit"
+        ({current-page})="currentPage"
+        {headings}="headings"
+        {rows}="rows"/>

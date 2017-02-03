@@ -1,0 +1,98 @@
+{{#if showItemTotal}}
+    <p class="total-items pagination-section">
+        <span class="items-count">{{rowCount}}</span>
+        <span class="items-type">{{itemsType}}</span>
+    </p>
+{{/if}}
+
+{{#if showPageNavigation}}
+
+    {{#if showListOfPageLinks}}
+        <div class="pages pagination-section">
+            <ul class="pagination">
+                <li {{#unless canPrev}} class="disabled"{{/unless}}>
+                    <button
+                        {{#unless canPrev}} disabled="disabled"{{/unless}}
+                                            type="button"
+                                            class="pagination-prev"
+                                            ($click)="goToPrevPage()">
+                        <span class="sr-only">Go to previous page</span>
+                    </button>
+                </li>
+                {{#if pages}}
+                    <li {{#if isCurrentPage}} class="active"{{/if}}>
+                        <button
+                            {{#if isCurrentPage}} disabled="disabled"{{/if}}
+                                                  type="button"
+                                                  class="pagination-page"
+                                                  ($click)="setCurrentPage()">
+                            <span class="sr-only">Go to page</span> {{.}}
+                        </button>
+                    </li>
+                {{/if}}
+                <li {{#unless canNext}} class="disabled"{{/unless}}>
+                    <button type="button"
+                            class="pagination-next"
+                            ($click)="goToNextPage()"
+                        {{#unless canNext}} disabled="disabled"{{/unless}}>
+                        <span class="sr-only">Go to next page</span>
+                    </button>
+                </li>
+
+            </ul>
+        </div>
+    {{/if}}
+
+    {{#unless showListOfPageLinks}}
+        {{#if totalPages}}
+            <div class="pages pagination-section">
+                <button type="button"
+                        class="pagination-first btn btn-link"
+                        ($click)="goToFirstPage()"
+                        {{#unless canGoToFirstPage}}disabled="disabled"{{/unless}}>
+                    <span class="icon-arrow-double rotate-90" aria-hidden="true"></span>
+                    <span class="sr-only">Go to first page</span>
+                </button>
+                <button type="button"
+                        class="pagination-prev btn btn-link"
+                        ($click)="goToPrevPage()"
+                        {{#unless canPrev}}disabled="disabled"{{/unless}}>
+                    <span class="icon-chevron rotate-270" aria-hidden="true"></span>
+                    <span class="sr-only">Go to previous page</span>
+                </button>
+                <p class="page-status">
+                    <span class="current-page">{{currentPage}}</span> of <span
+                        class="total-pages">{{totalPages}}</span> {{pageStatusSuffix}}
+                </p>
+                <button type="button"
+                        class="pagination-next btn btn-link"
+                        ($click)="goToNextPage()"
+                    {{#unless canNext}} disabled="disabled"{{/unless}}>
+                    <span class="icon-chevron rotate-90" aria-hidden="true"></span>
+                    <span class="sr-only">Go to next page</span>
+                </button>
+                <button type="button"
+                        class="pagination-last btn btn-link"
+                        ($click)="goToLastPage()"
+                    {{#unless canGoToLastPage}} disabled="disabled"{{/unless}}>
+                    <span class="icon-arrow-double rotate-270" aria-hidden="true"></span>
+                    <span class="sr-only">Go to last page</span>
+                </button>
+            </div>
+        {{/if}}
+    {{/unless}}
+{{/if}}
+
+{{#if showLimitList}}
+    <div class="limit-list pagination-section">
+        <span class="navbar-text">Showing:</span>
+        <ul class="nav navbar-nav">
+            {{#availablePageLimits}}
+                <li>
+                    <button type="button" class="btn btn-link navbar-btn {{#if isCurrentLimit}}active{{/if}}"
+                            ($click)="setLimit()">{{.}}</button>
+                </li>
+            {{/availablePageLimits}}
+        </ul>
+    </div>
+{{/if}}

@@ -1,0 +1,14 @@
+<tbody>
+    {{#each displayRows}}
+        <tr {{#if className}}class="{{className}}"{{/if}}>
+            {{#each cells}}
+                <td {{#if cellClasses}}class="{{cellClassName()}}"{{/if}}
+                    {{#if headers}}headers="{{headers}}"{{/if}}
+                    {{#if rowspan}}rowspan="{{rowspan}}"{{/if}}
+                    {{#if colspan}}colspan="{{colspan}}"{{/if}}>
+                    {{{content}}}
+                </td>
+            {{/each}}
+        </tr>
+    {{/each}}
+</tbody>

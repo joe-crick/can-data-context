@@ -1,0 +1,1 @@
+export default item => item.toString().indexOf('DefineList') > -1;
