@@ -42,7 +42,7 @@ export default DefineMap.extend({
 	prev() {
 		const decrement = this.rowsPerPage;
 		const lower = this.lowerBounds - decrement;
-		if(lower > 0) {
+		if(lower >= 0) {
 			batch.start();
 			this.lowerBounds = lower;
 			this.upperBounds += -decrement;

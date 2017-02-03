@@ -9,9 +9,10 @@
  * The table pagination component should contain these attributes along with the tag:
  *
  * @param {String} class-name
- * @param {Number} rowspan
- * @param {Number} colspan
- * @param {String} headers - A space separated string of IDs that associates this pagination with specific column headers
+ * @param {Number} lowerBounds
+ * @param {Number} rowsPerPage
+ * @param {Number} rowCount
+ * @param {DefineList} tableFilters - A DefineList of table filter functions
  *
  *
  * @body
@@ -19,9 +20,12 @@
  * ## Use
  *
  * ```js
- *   <can-table-pagination {class-name}="demoVm.className">
- *      <span>This is a test</span>
- *   </can-table-pagination>
+ *   <can-table-pagination
+ *	 	class="pagination"
+ *	 	{lower-bounds}="lowerBounds"
+ *	 	{rows-per-page}="rowsPerPage"
+ *	 	{row-count}="rowCount"
+ *	 	{^table-filters}="@tableFilters"/>
  * ```
  *
  */

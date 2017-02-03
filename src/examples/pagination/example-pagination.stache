@@ -2,12 +2,11 @@
 <can-import from="can-table/components/table-html/"/>
 
 <can-table-pagination
-        class="pagination"
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
         {^table-filters}="@tableFilters"/>
-
+<div class="clearfix"></div><br/>
 <can-table-html
         class="can-table"
         {headings}="headings"

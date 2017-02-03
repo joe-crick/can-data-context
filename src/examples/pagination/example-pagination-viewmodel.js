@@ -2,10 +2,17 @@ import DefineMap from 'can-define/map/';
 import List from 'can-define/List/';
 
 export default DefineMap.extend({
-
+	/**
+	 * @property {Array | DefineList} pagination.viewmodel.tableFilters
+	 * @description A set of table filter functions.
+	 */
 	tableFilters: {
 		type: '*'
 	},
+	/**
+	 * @property {Array | DefineList} pagination.viewmodel.tableClasses
+	 * @description The CSS classes the `<table>` tag should have.
+	 */
 	tableClasses: {
 		Type: List,
 		value: [
@@ -17,14 +24,26 @@ export default DefineMap.extend({
 			'table-responsive'
 		]
 	},
+	/**
+	 * @property {number} pagination.viewmodel.lowerBounds
+	 * @description The index of the starting point for displaying table rows.
+	 */
 	lowerBounds: {
 		type: 'number',
 		value: 0
 	},
+	/**
+	 * @property {List} pagination.viewmodel.rowsPerPage
+	 * @description The number of rows to display per page.
+	 */
 	rowsPerPage: {
 		type: 'number',
 		value: 5
 	},
+	/**
+	 * @property {List} pagination.viewmodel.rowCount
+	 * @description The number of rows in the collection.
+	 */
 	rowCount: {
 		type: 'number',
 		get() {
