@@ -38,7 +38,6 @@ export default DefineMap.extend({
 	rows: {
 		Type: List
 	},
-
 	/**
 	 * @property {List} pagination.viewmodel.headings
 	 * @description The headings for the table.

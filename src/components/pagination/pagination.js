@@ -32,5 +32,10 @@ import viewModel from './pagination-viewmodel';
 export default Component.extend({
     tag: 'can-table-pagination',
     template,
-    viewModel
+    viewModel,
+    events: {
+        init: function init() {
+            this.viewModel.upperBounds = this.viewModel.rowsPerPage;
+        }
+    }
 });
