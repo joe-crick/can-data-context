@@ -3,13 +3,14 @@
 
 <can-table-pagination
         class="pagination"
+        {lower-bounds}="lowerBounds"
+        {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
-        ({row-display-limit})="rowDisplayLimit"
-        ({current-page})="currentPage"/>
+        {^table-filters}="@tableFilters"/>
 
 <can-table-html
-        {row-count}="rowCount"
-        ({row-display-limit})="rowDisplayLimit"
-        ({current-page})="currentPage"
+        class="can-table"
         {headings}="headings"
-        {rows}="rows"/>
+        {rows}="rows"
+        {table-classes}="tableClasses"
+        {table-filters}="@tableFilters"/>

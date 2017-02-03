@@ -12,7 +12,7 @@ export default Component.extend({
 		 * @returns {string}
 		 */
 		tableClassName() {
-            return this.tableClasses.join(' ');
+            return this.tableClasses.length > 0 ? this.tableClasses.join(' ') : '';
         },
 		/**
 		 * @desc Returns the cells meta property cellClasses as a space separated string.
@@ -21,7 +21,7 @@ export default Component.extend({
 		 * @returns {string}
 		 */
 		cellClassName() {
-			return this.cellClasses.join(' ');
+			return this.cellClasses.length > 0 ? this.cellClasses.join(' '): '';
 		},
 		/**
 		 * @desc Returns the cells meta property cellClasses as a space separated string.
@@ -31,7 +31,7 @@ export default Component.extend({
 		 */
 		headerClassName() {
 			// TODO: Calling join seems to be calling .toString on the DefineList function
-			return this.headerClasses.join(' ');
+			return this.headerClasses.length > 0 ? this.headerClasses.join(' ') : '';
 		}
     }
 });

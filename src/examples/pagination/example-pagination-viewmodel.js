@@ -3,38 +3,34 @@ import List from 'can-define/List/';
 
 export default DefineMap.extend({
 
-	/**
-	 * @property {Number} pagination.rowDisplayLimit rowDisplayLimit
-	 * @description The number of items to display per page.
-	 * @option {Number} Default value: **25**
-	 */
-	rowDisplayLimit: {
-		type: 'number',
-		value: 10
+	tableFilters: {
+		type: '*'
 	},
-
-	/**
-	 * @property {Number} pagination.rowCount rowCount
-	 * @description The total number of items.
-	 * @option {Number} Default value: **null**
-	 */
+	tableClasses: {
+		Type: List,
+		value: [
+			'table',
+			'table-striped',
+			'table-bordered',
+			'table-hover',
+			'table-sm',
+			'table-responsive'
+		]
+	},
+	lowerBounds: {
+		type: 'number',
+		value: 0
+	},
+	rowsPerPage: {
+		type: 'number',
+		value: 5
+	},
 	rowCount: {
 		type: 'number',
-		get(){
+		get() {
 			return this.rows.length;
 		}
 	},
-
-	/**
-	 * @property {Number} pagination.viewmodel.currentPage
-	 * @description The number of the page being viewed.
-	 * @option {Number} Default value: **1**
-	 */
-	currentPage: {
-		type: 'number',
-		value: 2
-	},
-
 	/**
 	 * @property {List} pagination.viewmodel.rows
 	 * @description The rows for the table.
