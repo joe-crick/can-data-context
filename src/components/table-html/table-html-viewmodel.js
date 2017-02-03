@@ -16,7 +16,7 @@ export default DefineMap.extend({
 			const filteredRows = rowFilterer.fold(() => rowClone, identity);
 			const applyBodyCellMiddleware = bodyCellMiddleware(this.cellMiddleware);
 			const displayRows = applyBodyCellMiddleware(filteredRows)
-				.fold(noOp, identity);
+				.fold(() => filteredRows, identity);
 
 			return displayRows;
 
