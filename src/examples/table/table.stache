@@ -10,6 +10,7 @@
         {filterPriority}="1"/>
 
 <can-table-pagination
+        class="table-pagination"
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
@@ -22,6 +23,7 @@
             class="can-data"
             {data}="rows"
             {headings}="headings"
+            {^filtered-row-count}="rowCount"
             {data-filters}="dataFilters">
         <table class="table table-striped table-hover table-bordered table-sm fixed_header-table">
             <thead>

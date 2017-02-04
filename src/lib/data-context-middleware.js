@@ -25,11 +25,18 @@ const getFilterMiddleware = middleWareSet => {
 	return Either.fromNullable(middleWareSet)
 		.fold(noOp, functions => Box(function filterRows(records) {
 			let newRows = records;
+			let rowCount = 0;
 			const weightedFunctions = sortFunctionsByWeight(functions);
 
+			// TODO: This whole thing with the sentinal straight up hackey... Improve!
+			// setting state, even. Oy...
 			weightedFunctions.forEach(function (filterContainer) {
+				if (filterContainer.sentinel) {
+					rowCount = newRows.length;
+				}
 				newRows = newRows.filter(filterContainer.filter);
 			});
+			newRows.rowCount = rowCount;
 			return newRows;
 		}));
 };

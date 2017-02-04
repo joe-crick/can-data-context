@@ -13,7 +13,8 @@ export default DefineMap.extend({
 		get() {
 			return {
 				pagination: filterPagination(this.lowerBounds)(this.upperBounds),
-				filterPriority: this.filterPriority
+				filterPriority: this.filterPriority,
+				sentinel: true
 			};
 		}
 	},

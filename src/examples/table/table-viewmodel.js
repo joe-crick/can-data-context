@@ -46,9 +46,7 @@ export default DefineMap.extend({
 	 */
 	rowCount: {
 		type: 'number',
-		get() {
-			return this.rows.length;
-		}
+		value: 0
 	},
 	/**
 	 * @property {List} pagination.viewmodel.rows
