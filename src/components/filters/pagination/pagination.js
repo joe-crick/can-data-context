@@ -38,7 +38,10 @@ export default Component.extend({
     template,
     viewModel,
     events: {
-        init: function init() {
+		/**
+		 * @desc Sets the correct upper bounds on init
+		 */
+		init: function init() {
             this.viewModel.upperBounds = this.viewModel.rowsPerPage -1;
         }
     }

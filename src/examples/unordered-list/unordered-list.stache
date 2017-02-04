@@ -1,6 +1,7 @@
 <can-import from="can-table/components/filters/pagination/"/>
 <can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
+<can-import from="./unordered-list.less"/>
 
 <can-table-search
         {^table-filters}="@setDataFilters"

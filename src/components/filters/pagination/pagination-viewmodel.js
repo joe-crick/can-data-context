@@ -1,12 +1,22 @@
 import DefineMap from 'can-define/map/';
 import batch from 'can-event/batch/'
 
+/**
+ * @desc The filter function applied to the data set
+ * @param lowerBounds
+ */
 const filterPagination = lowerBounds => upperBounds => function (row, index, array) {
 	return lowerBounds > array.length
 		? index === (array.length - 1)
 		: index >= lowerBounds && index <= upperBounds;
 };
 
+/**
+ * @desc Updates the page state on navigation for increment and decrement
+ * @param lower
+ * @param increment
+ * @param pageIncrement
+ */
 const updatePageState = function (lower, increment, pageIncrement) {
 	this.isNextDisabled = false;
 	this.isPrevDisabled = false;
@@ -66,7 +76,6 @@ export default DefineMap.extend({
 		value: true
 	},
 	next() {
-		// +1, go to the next in the set
 		const increment = this.rowsPerPage;
 		const lower = this.lowerBounds + increment;
 		if (lower < this.rowCount) {
