@@ -1,7 +1,7 @@
 <script type="text/stache" class="demo" can-autorender>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <can-import from="can-table/components/data-context/" />
-  <can-import from="can-table/components/pagination/" />
+  <can-import from="can-data-context/components/data-context/" />
+  <can-import from="can-data-context/components/pagination/" />
     <h1>Data Context Component</h1>
 
     <style>
@@ -37,9 +37,9 @@
 	import can from 'can';
 	import Map from 'can-define/map/';
 	import List from 'can-define/List/';
-	import tableData from 'can-table/components/table-test-data';
+	import tableData from 'can-data-context/components/table-test-data';
 	import 'can/view/autorender/';
-    import filterPagination from 'can-table/components/table-html/filters/filter-pagination';
+    import filterPagination from 'can-data-context/components/table-html/filters/filter-pagination';
     import batch from 'can-event/batch/'
 
 	const DemoVM = Map.extend({

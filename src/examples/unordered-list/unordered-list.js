@@ -4,7 +4,7 @@
  * @description
  * A table pagination component. Renders either a th or td (perhaps refactor?) depending on the type passed in.
  *
- * @signature '<can-table-pagination> <content/> </can-table-pagination>'
+ * @signature '<can-data-context-pagination> <content/> </can-data-context-pagination>'
  *
  * The table pagination component should contain these attributes along with the tag:
  *
@@ -19,9 +19,9 @@
  * ## Use
  *
  * ```js
- *   <can-table-pagination {class-name}="demoVm.className">
+ *   <can-data-context-pagination {class-name}="demoVm.className">
  *      <span>This is a test</span>
- *   </can-table-pagination>
+ *   </can-data-context-pagination>
  * ```
  *
  */

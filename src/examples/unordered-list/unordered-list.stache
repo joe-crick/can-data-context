@@ -1,13 +1,13 @@
-<can-import from="can-table/components/filters/pagination/"/>
-<can-import from="can-table/components/filters/search/"/>
-<can-import from="can-table/components/data-context/"/>
+<can-import from="can-data-context/components/filters/pagination/"/>
+<can-import from="can-data-context/components/filters/search/"/>
+<can-import from="can-data-context/components/data-context/"/>
 <can-import from="./unordered-list.less"/>
 
-<can-table-search
+<can-data-context-search
         {^table-filters}="@setDataFilters"
 />
 
-<can-table-pagination
+<can-data-context-pagination
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"

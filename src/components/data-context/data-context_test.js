@@ -2,7 +2,7 @@ import QUnit from 'steal-qunit';
 import ViewModel from './select-box.viewmodel';
 
 // ViewModel unit tests
-QUnit.module('can-table/components/select-box');
+QUnit.module('can-data-context/components/select-box');
 
 QUnit.test('selectedItem defaults to null', function(){
   const vm = new ViewModel();

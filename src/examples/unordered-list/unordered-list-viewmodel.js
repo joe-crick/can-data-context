@@ -1,6 +1,6 @@
 import DefineMap from 'can-define/map/';
 import List from 'can-define/List/';
-import filterUpdater from 'can-table/lib/filter-object-updater';
+import filterUpdater from 'can-data-context/lib/filter-object-updater';
 
 export default DefineMap.extend({
 	/**

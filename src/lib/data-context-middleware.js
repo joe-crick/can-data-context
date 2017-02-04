@@ -1,6 +1,6 @@
 import Either from 'data.either';
-import {noOp} from 'can-table/lib/utils';
-import Box from 'can-table/lib/box';
+import {noOp} from 'can-data-context/lib/utils';
+import Box from 'can-data-context/lib/box';
 
 /**
  * @desc Converts the DefineMap that contains a list of functions as properties to an array based on the weight values

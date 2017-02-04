@@ -1,1 +1,1 @@
-<input type="text" {($value)}="searchTerm" class="can-table-search">
+<input type="text" {($value)}="searchTerm" class="can-data-context-search">

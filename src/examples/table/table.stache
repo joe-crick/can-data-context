@@ -1,15 +1,15 @@
-<can-import from="can-table/components/filters/pagination/"/>
-<can-import from="can-table/components/filters/search/"/>
-<can-import from="can-table/components/data-context/"/>
+<can-import from="can-data-context/components/filters/pagination/"/>
+<can-import from="can-data-context/components/filters/search/"/>
+<can-import from="can-data-context/components/data-context/"/>
 <can-import from="./table.less"/>
-<!--<can-import from="can-table/formatters/fixed-table-headers.less"/>-->
+<!--<can-import from="can-data-context/formatters/fixed-table-headers.less"/>-->
 
-<can-table-search
+<can-data-context-search
         class="data-search"
         {^table-filters}="@setDataFilters"
         {filterPriority}="1"/>
 
-<can-table-pagination
+<can-data-context-pagination
         class="table-pagination"
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"

@@ -1,6 +1,6 @@
 import DefineMap from 'can-define/map/';
-import {dataFormatMiddleware, dataFilterMiddleware} from 'can-table/lib/data-context-middleware';
-import {identity} from 'can-table/lib/utils';
+import {dataFormatMiddleware, dataFilterMiddleware} from 'can-data-context/lib/data-context-middleware';
+import {identity} from 'can-data-context/lib/utils';
 import arrayClone from 'clone';
 
 export default DefineMap.extend({
