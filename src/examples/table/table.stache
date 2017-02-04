@@ -2,7 +2,7 @@
 <can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
 <can-import from="./table.less"/>
-<can-import from="can-table/formatters/fixed-table-headers.less"/>
+<!--<can-import from="can-table/formatters/fixed-table-headers.less"/>-->
 
 <can-table-search
         class="data-search"
