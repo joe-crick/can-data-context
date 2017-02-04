@@ -30,7 +30,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## Authors
 
-* **Joe Crick** - *Initial work* - [PurpleBooth](https://github.com/joe-crick)
+* **Joe Crick** - *Initial work* 
 
 ## License
 
