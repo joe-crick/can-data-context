@@ -1,8 +1,10 @@
 import DefineMap from 'can-define/map/';
 import batch from 'can-event/batch/'
 
-const filterPagination = lowerBounds => upperBounds => function(row, index) {
-	return index >= lowerBounds && index <= upperBounds;
+const filterPagination = lowerBounds => upperBounds => function(row, index, array) {
+	return lowerBounds > array.length
+		? index === (array.length - 1)
+		: index >= lowerBounds && index <= upperBounds;
 };
 
 export default DefineMap.extend({

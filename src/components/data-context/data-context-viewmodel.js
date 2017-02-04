@@ -4,9 +4,6 @@ import {identity} from 'can-table/lib/utils';
 import arrayClone from 'clone';
 
 export default DefineMap.extend({
-	data: {
-		type: '*'
-	},
 	dataFilters: {
 		Type: DefineMap,
 		value: {}
