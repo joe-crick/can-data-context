@@ -1,6 +1,7 @@
 <can-import from="can-table/components/filters/pagination/"/>
 <can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
+<can-import from="./table.less"/>
 <can-import from="can-table/formatters/fixed-table-headers.less"/>
 
 <can-table-search
@@ -15,31 +16,36 @@
         {filterPriority}="100"
         {^table-filters}="@setDataFilters"/>
 <div class="clearfix"></div><br/>
-<div class="fixed-headers"><can-data-context
-        class="can-data"
-        {data}="rows"
-        {headings}="headings"
-        {data-filters}="dataFilters">
-<table class="table table-striped table-hover table-bordered table-sm fixed_header-table">
-    <thead>
-    {{#each headings}}
-        <tr>
-        {{#each cells}}
-            <!-- To add fixed headers, surround the th in a div with a class of "fixed" -->
-            <th><div title="{{heading}}" class="fixed-cell">{{heading}}</div></th>
-        {{/each}}
-        </tr>
-    {{/each}}
-    </thead>
-    <tbody>
-    {{#each filterData(data, dataFilters)}}
-        <tr>
-            {{#each cells}}
-                <td>{{content}}</td>
-            {{/each}}
-        </tr>
-    {{/each}}
-    </tbody>
-</table>
+<!-- Wrap the data-content in a div with class="fixed-headers" for fixed headers -->
+<div class="fixed-headers">
+    <can-data-context
+            class="can-data"
+            {data}="rows"
+            {headings}="headings"
+            {data-filters}="dataFilters">
+        <table class="table table-striped table-hover table-bordered table-sm fixed_header-table">
+            <thead>
+                {{#each headings}}
+                    <tr>
+                        {{#each cells}}
+                            <!-- When adding fixed headers, surround the th in a div with a class of "fixed" -->
+                            <th>
+                                <div title="{{heading}}" class="fixed-cell">{{heading}}</div>
+                            </th>
+                        {{/each}}
+                    </tr>
+                {{/each}}
+            </thead>
+            <tbody>
+                {{#each filterData(data, dataFilters)}}
+                    <tr>
+                        {{#each cells}}
+                            <td>{{content}}</td>
+                        {{/each}}
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
 
-</can-data-context></div>
+    </can-data-context>
+</div>
