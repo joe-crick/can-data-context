@@ -9,7 +9,10 @@ export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return {pagination: filterPagination(this.lowerBounds)(this.upperBounds)};
+			return {
+				pagination: filterPagination(this.lowerBounds)(this.upperBounds),
+				weight: 100
+			};
 		}
 	},
 	lowerBounds: {

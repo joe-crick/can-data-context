@@ -1,7 +1,0 @@
-<can-import from="./body.stache" {^@value}="@*body"/>
-<can-import from="./header.stache" {^@value}="@*header" />
-
-<table {{#if tableClasses}}class="{{tableClassName()}}"{{/if}} {{#if className}}class="{{className}}"{{/if}}>
-    {{>*header}}
-    {{>*body}}
-</table>

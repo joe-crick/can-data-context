@@ -17,7 +17,10 @@ export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return {search: filterSearch(this.searchTerm)};
+			return {
+				search: filterSearch(this.searchTerm),
+				weight: 1
+			};
 		}
 	},
 	searchTerm: {

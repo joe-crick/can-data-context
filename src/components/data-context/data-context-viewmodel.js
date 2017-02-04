@@ -12,9 +12,9 @@ export default DefineMap.extend({
 		value: {}
 	},
 	filterData(records, dataFilters) {
-		const applyTableRowMiddleware = dataFilterMiddleware(dataFilters);
+		const applyDataMiddleware = dataFilterMiddleware(dataFilters);
 		const rowClone = arrayClone(records);
-		const rowFilterer = applyTableRowMiddleware(rowClone);
+		const rowFilterer = applyDataMiddleware(rowClone);
 		const filteredRows = rowFilterer.fold(() => rowClone, identity);
 		return filteredRows;
 	}
