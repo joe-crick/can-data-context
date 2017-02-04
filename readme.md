@@ -38,6 +38,6 @@ This project is licensed under the MIT License - have at it!
 
 ## Acknowledgments
 
-* Thanks to [Alexis Abril](https://github.com/alexisabril) for pointing me in the right direction with leak scope
+* Thanks to [Alexis Abril](https://github.com/alexisabril) for pointing me in the right direction with leak scope.
 * Thanks to [Marshall Thompson](https://github.com/marshallswain) for thinking this was awesome.
 
