@@ -1,6 +1,7 @@
 <can-import from="can-table/components/filters/pagination/"/>
 <can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
+<can-import from="can-table/formatters/fixed-table-headers.less"/>
 
 <can-table-search
         class="data-search"
@@ -14,17 +15,18 @@
         {filterPriority}="100"
         {^table-filters}="@setDataFilters"/>
 <div class="clearfix"></div><br/>
-<can-data-context
+<div class="fixed-headers"><can-data-context
         class="can-data"
         {data}="rows"
         {headings}="headings"
         {data-filters}="dataFilters">
-<table class="table table-striped table-hover table-bordered table-sm">
+<table class="table table-striped table-hover table-bordered table-sm fixed_header-table">
     <thead>
     {{#each headings}}
         <tr>
         {{#each cells}}
-            <th><span title="{{heading}}">{{heading}}</span></th>
+            <!-- To add fixed headers, surround the th in a div with a class of "fixed" -->
+            <th><div title="{{heading}}" class="fixed-cell">{{heading}}</div></th>
         {{/each}}
         </tr>
     {{/each}}
@@ -40,4 +42,4 @@
     </tbody>
 </table>
 
-</can-data-context>
+</can-data-context></div>
