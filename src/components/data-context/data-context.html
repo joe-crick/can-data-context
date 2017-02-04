@@ -1,0 +1,72 @@
+<script type="text/stache" class="demo" can-autorender>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <can-import from="can-table/components/data-context/" />
+    <h1>Data Context Component</h1>
+
+    <style>
+      .table-container {
+        width: 90%;
+        margin-left: 20px;
+      }
+    </style>
+
+
+    <div class="table-container">
+        <can-data-context
+            class="can-data"
+            {data}="demoVm.rows">
+              <ul>
+              {{#each data}}
+               {{#each cells}}
+                <li>{{content}}</li>
+                {{/each}}
+              {{/each}}
+              </ul>
+         </can-data-context>
+
+         <div class="action-buttons pull-right">
+           <button class="btn btn-standard" ($click)="demoVm.prev">Prev</button>
+           <button class="btn btn-standard" ($click)="demoVm.next">Next</button>
+        </div>
+    </div>
+
+  </div>
+
+</script>
+
+<script src="../../../node_modules/steal/steal.js" main="@empty">
+	import can from 'can';
+	import Map from 'can-define/map/';
+	import List from 'can-define/List/';
+	import tableData from 'can-table/components/table-test-data';
+	import 'can/view/autorender/';
+    import filterPagination from 'can-table/components/table-html/filters/filter-pagination';
+    import batch from 'can-event/batch/'
+
+	const DemoVM = Map.extend({
+		rows: {
+			type: '*'
+		},
+		dataFilters: {
+            type: List,
+            // Dynamic filter that reapplies when data changes
+            get() {
+                return new List([filterPagination(this.lowerBounds)(this.upperBounds)])
+            }
+        }
+
+	});
+
+	const vm = can.viewModel('.demo');
+
+	vm.demoVm = new DemoVM({
+		headings: tableData.headings,
+		rows: tableData.rows
+	});
+
+	window.can = can;
+
+</script>
+
+
+
