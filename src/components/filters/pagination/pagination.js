@@ -39,9 +39,7 @@ export default Component.extend({
     viewModel,
     events: {
         init: function init() {
-        	// TODO: Hacky - Find a better solution that doesn't require +1ing everything.
-			this.viewModel.rowsPerPage = this.viewModel.rowsPerPage -1;
-            this.viewModel.upperBounds = this.viewModel.rowsPerPage;
+            this.viewModel.upperBounds = this.viewModel.rowsPerPage -1;
         }
     }
 });

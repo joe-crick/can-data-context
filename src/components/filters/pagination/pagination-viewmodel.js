@@ -50,7 +50,7 @@ export default DefineMap.extend({
 	},
 	totalPages: {
 		get (){
-			return Math.ceil(this.rowCount / (this.rowsPerPage + 1));
+			return Math.ceil(this.rowCount / (this.rowsPerPage));
 		}
 	},
 	currentPage: {
@@ -67,7 +67,7 @@ export default DefineMap.extend({
 	},
 	next() {
 		// +1, go to the next in the set
-		const increment = this.rowsPerPage + 1;
+		const increment = this.rowsPerPage;
 		const lower = this.lowerBounds + increment;
 		if (lower < this.rowCount) {
 			updatePageState.call(this, lower, increment, 1);
@@ -76,7 +76,7 @@ export default DefineMap.extend({
 
 	},
 	prev() {
-		const decrement = this.rowsPerPage + 1;
+		const decrement = this.rowsPerPage;
 		const lower = this.lowerBounds - decrement;
 		if (lower >= 0) {
 			updatePageState.call(this, lower, -(decrement), -1)
