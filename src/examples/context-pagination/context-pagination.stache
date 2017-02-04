@@ -1,0 +1,21 @@
+<can-import from="can-table/components/pagination/"/>
+<can-import from="can-table/components/data-context/"/>
+
+<can-table-pagination
+        {lower-bounds}="lowerBounds"
+        {rows-per-page}="rowsPerPage"
+        {row-count}="rowCount"
+        {^table-filters}="@tableFilters"/>
+<div class="clearfix"></div><br/>
+<can-data-context
+        class="can-data"
+        {data}="rows"
+        {data-filters}="tableFilters">
+    <ul>
+        {{#each filterData(data, dataFilters)}}
+            {{#each cells}}
+                <li>{{content}}</li>
+            {{/each}}
+        {{/each}}
+    </ul>
+</can-data-context>

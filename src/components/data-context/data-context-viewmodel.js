@@ -1,16 +1,11 @@
 import DefineMap from 'can-define/map/';
-import {dataFormatMiddleware, dataFilterMiddleware} from './data-context-middleware';
-import {noOp, identity} from 'can-table/lib/utils';
+import {dataFormatMiddleware, dataFilterMiddleware} from 'can-table/lib/data-context-middleware';
+import {identity} from 'can-table/lib/utils';
 import arrayClone from 'clone';
 
 export default DefineMap.extend({
 	data: {
 		type: '*'
-	},
-	recordCount: {
-		get() {
-			return this.rows.length;
-		}
 	},
 	dataFilters: {
 		type: '*'
@@ -18,16 +13,16 @@ export default DefineMap.extend({
 	dataFormatters: {
 		type: '*'
 	},
-	filterData() {
-		const applyTableRowMiddleware = dataFilterMiddleware(this.tableFilters);
-		const rowClone = arrayClone(this.rows);
+	filterData(records, dataFilters) {
+		const applyTableRowMiddleware = dataFilterMiddleware(dataFilters);
+		const rowClone = arrayClone(records);
 		const rowFilterer = applyTableRowMiddleware(rowClone);
 		const filteredRows = rowFilterer.fold(() => rowClone, identity);
 		return filteredRows;
 	},
-	formatData() {
-		const applyBodyCellMiddleware = dataFormatMiddleware(this.cellMiddleware);
-		const displayRows = applyBodyCellMiddleware(filteredRows)
+	formatData(records, dataFormatters) {
+		const applyBodyCellMiddleware = dataFormatMiddleware(dataFormatters);
+		const displayRows = applyBodyCellMiddleware(records)
 			.fold(() => filteredRows, identity);
 
 		return displayRows;

@@ -1,6 +1,7 @@
 <script type="text/stache" class="demo" can-autorender>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <can-import from="can-table/components/data-context/" />
+  <can-import from="can-table/components/pagination/" />
     <h1>Data Context Component</h1>
 
     <style>
@@ -12,9 +13,11 @@
 
 
     <div class="table-container">
+
         <can-data-context
             class="can-data"
-            {data}="demoVm.rows">
+            {data}="demoVm.rows"
+            {data-filters}="demoVn.dataFilters">
               <ul>
               {{#each data}}
                {{#each cells}}
@@ -22,12 +25,8 @@
                 {{/each}}
               {{/each}}
               </ul>
-         </can-data-context>
+        </can-data-context>
 
-         <div class="action-buttons pull-right">
-           <button class="btn btn-standard" ($click)="demoVm.prev">Prev</button>
-           <button class="btn btn-standard" ($click)="demoVm.next">Next</button>
-        </div>
     </div>
 
   </div>

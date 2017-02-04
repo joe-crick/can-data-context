@@ -1,0 +1,53 @@
+<script type="text/stache" class="demo" can-autorender>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <can-import from="can-table/examples/context-pagination/" />
+    <h1>Pagination Example</h1>
+
+
+    <style>
+      .context-pagination {
+        width: 90%;
+        margin-left: 20px;
+        display: block;
+      }
+    </style>
+
+
+    <context-pagination
+        class="context-pagination"
+        {headings}="demoVm.headings"
+        {rows}="demoVm.rows"/>
+
+  </div>
+
+</script>
+<script src="../../../node_modules/steal/steal.js" main="@empty">
+	import can from 'can';
+	import DefineMap from 'can-define/map/';
+	import List from 'can-define/List/';
+	import tableData from 'can-table/components/table-test-data';
+	import 'can/view/autorender/';
+
+
+	const DemoVM = DefineMap.extend({
+		headings: {
+			Type: List
+		},
+		rows: {
+			Type: List
+		}
+	});
+
+	const vm = can.viewModel('.demo');
+
+	vm.demoVm = new DemoVM({
+		headings: tableData.headings,
+		rows: tableData.rows
+	});
+
+	window.can = can;
+
+</script>
+
+
+
