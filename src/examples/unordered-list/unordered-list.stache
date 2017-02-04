@@ -15,14 +15,8 @@
 <can-data-context
         class="can-data"
         {data}="rows"
-        {headings}="headings"
         {data-filters}="dataFilters">
 
-    {{#each headings}}
-        {{#each cells}}
-            <span title="{{heading}}">{{heading}}</span>
-        {{/each}}
-    {{/each}}
     {{#each filterData(data, dataFilters)}}
         <ul>
             {{#each cells}}

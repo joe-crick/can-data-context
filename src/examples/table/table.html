@@ -1,7 +1,7 @@
 <script type="text/stache" class="demo" can-autorender>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <can-import from="can-table/examples/context-pagination/" />
-    <h1>Pagination Example</h1>
+  <can-import from="can-table/examples/table/" />
+    <h1>Table Example</h1>
 
 
     <style>
@@ -13,7 +13,7 @@
     </style>
 
 
-    <context-pagination
+    <table-example
         class="context-pagination"
         {headings}="demoVm.headings"
         {rows}="demoVm.rows"/>
@@ -27,7 +27,6 @@
 	import List from 'can-define/List/';
 	import tableData from 'can-table/components/table-test-data';
 	import 'can/view/autorender/';
-
 
 	const DemoVM = DefineMap.extend({
 		headings: {

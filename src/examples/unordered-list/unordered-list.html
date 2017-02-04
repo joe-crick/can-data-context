@@ -28,11 +28,7 @@
 	import tableData from 'can-table/components/table-test-data';
 	import 'can/view/autorender/';
 
-
 	const DemoVM = DefineMap.extend({
-		headings: {
-			Type: List
-		},
 		rows: {
 			Type: List
 		}
@@ -41,7 +37,6 @@
 	const vm = can.viewModel('.demo');
 
 	vm.demoVm = new DemoVM({
-		headings: tableData.headings,
 		rows: tableData.rows
 	});
 

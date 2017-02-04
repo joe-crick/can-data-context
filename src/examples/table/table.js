@@ -26,11 +26,11 @@
  *
  */
 import Component from 'can/component/';
-import template from './unordered-list.stache!';
-import viewModel from './context-pagination-viewmodel';
+import template from './table.stache!';
+import viewModel from './table-viewmodel';
 
 export default Component.extend({
-    tag: 'unordered-list',
+    tag: 'table-example',
     template,
     viewModel
 });

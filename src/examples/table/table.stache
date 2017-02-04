@@ -17,18 +17,25 @@
         {data}="rows"
         {headings}="headings"
         {data-filters}="dataFilters">
-
+<table class="table table-striped table-hover table-bordered table-sm">
+    <thead>
     {{#each headings}}
+        <tr>
         {{#each cells}}
-            <span title="{{heading}}">{{heading}}</span>
+            <th><span title="{{heading}}">{{heading}}</span></th>
         {{/each}}
+        </tr>
     {{/each}}
+    </thead>
+    <tbody>
     {{#each filterData(data, dataFilters)}}
-        <ul>
+        <tr>
             {{#each cells}}
-                <li>{{content}}</li>
+                <td>{{content}}</td>
             {{/each}}
-        </ul>
+        </tr>
     {{/each}}
+    </tbody>
+</table>
 
 </can-data-context>
