@@ -13,9 +13,13 @@ export default DefineMap.extend({
 		get() {
 			return {
 				pagination: filterPagination(this.lowerBounds)(this.upperBounds),
-				weight: 100
+				filterPriority: this.filterPriority
 			};
 		}
+	},
+	filterPriority: {
+		type: 'number',
+		value: 100
 	},
 	lowerBounds: {
 		type: 'number',
@@ -33,6 +37,7 @@ export default DefineMap.extend({
 		type: 'number',
 		value: 0
 	},
+	// TODO: Fix blank pages, and nagivating past the available set.
 	next() {
 		// +1, go to the next in the set
 		const increment = this.rowsPerPage +1;

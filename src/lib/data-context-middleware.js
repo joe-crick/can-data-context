@@ -13,7 +13,7 @@ function sortFunctionsByWeight(functions) {
 	functions.forEach(filterSet => {
 		weightedFunctions.push(filterSet);
 	});
-	return weightedFunctions.sort((a, b) => a.weight - b.weight);
+	return weightedFunctions.sort((a, b) => a.filterPriority - b.filterPriority);
 }
 
 /**

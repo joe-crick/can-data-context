@@ -19,12 +19,16 @@ export default DefineMap.extend({
 		get() {
 			return {
 				search: filterSearch(this.searchTerm),
-				weight: 1
+				filterPriority: this.filterPriority
 			};
 		}
 	},
 	searchTerm: {
 		type: 'string',
 		value: ''
-	}
+	},
+	filterPriority: {
+		type: 'number',
+		value: 1
+	},
 });

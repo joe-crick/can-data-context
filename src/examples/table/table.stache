@@ -3,13 +3,16 @@
 <can-import from="can-table/components/data-context/"/>
 
 <can-table-search
+        class="data-search"
         {^table-filters}="@setDataFilters"
+        {filterPriority}="1"
 />
 
 <can-table-pagination
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
+        {filterPriority}="100"
         {^table-filters}="@setDataFilters"/>
 <div class="clearfix"></div><br/>
 <can-data-context
