@@ -10,8 +10,14 @@
 <can-data-context
         class="can-data"
         {data}="rows"
+        {headings}="headings"
         {data-filters}="tableFilters">
     <ul>
+        {{#each headings}}
+            {{#each cells}}
+                {{heading}}
+            {{/each}}
+        {{/each}}
         {{#each filterData(data, dataFilters)}}
             {{#each cells}}
                 <li>{{content}}</li>

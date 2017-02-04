@@ -23,7 +23,7 @@ export default DefineMap.extend({
 	formatData(records, dataFormatters) {
 		const applyBodyCellMiddleware = dataFormatMiddleware(dataFormatters);
 		const displayRows = applyBodyCellMiddleware(records)
-			.fold(() => filteredRows, identity);
+			.fold(() => records, identity);
 
 		return displayRows;
 	}
