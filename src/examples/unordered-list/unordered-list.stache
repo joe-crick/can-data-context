@@ -1,5 +1,5 @@
-<can-import from="can-table/components/pagination/"/>
-<can-import from="can-table/components/search/"/>
+<can-import from="can-table/components/filters/pagination/"/>
+<can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
 
 <can-table-search

@@ -1,12 +1,11 @@
-<can-import from="can-table/components/pagination/"/>
-<can-import from="can-table/components/search/"/>
+<can-import from="can-table/components/filters/pagination/"/>
+<can-import from="can-table/components/filters/search/"/>
 <can-import from="can-table/components/data-context/"/>
 
 <can-table-search
         class="data-search"
         {^table-filters}="@setDataFilters"
-        {filterPriority}="1"
-/>
+        {filterPriority}="1"/>
 
 <can-table-pagination
         {lower-bounds}="lowerBounds"
