@@ -20,7 +20,7 @@ This isn't released to npm, so if you really want to use it, you'll have to fork
 I might get around to making it an npm package.
 
 
-End with an example of getting some data out of the system or using it for a little demo
+End with an example of getting some data out of the system or using it for a little demo.
 
 ## Built With
 
