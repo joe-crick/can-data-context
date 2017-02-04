@@ -1,6 +1,6 @@
 # Can Data Context
 
-This component creates a data context you can utilize to run a series of filters over a data source, while still
+This CanJS component creates a data context you can utilize to run a series of filters over a data source, while still
 providing a semantic stache view for the data. The component is view agnostic. It merely provides a wrapper around
 the view that enables the manipulation of the data used by the view. This makes it easy to add functionality to 
 the view like:
@@ -18,9 +18,6 @@ _the proverbial someday_ to deal with dumb tables. Who knows..?
 
 This isn't released to npm, so if you really want to use it, you'll have to fork it for now. Again, _someday_
 I might get around to making it an npm package.
-
-
-End with an example of getting some data out of the system or using it for a little demo.
 
 ## Built With
 
