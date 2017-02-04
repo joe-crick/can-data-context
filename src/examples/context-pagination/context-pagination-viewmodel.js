@@ -11,21 +11,6 @@ export default DefineMap.extend({
 		value: []
 	},
 	/**
-	 * @property {Array | DefineList} pagination.viewmodel.tableClasses
-	 * @description The CSS classes the `<table>` tag should have.
-	 */
-	tableClasses: {
-		Type: List,
-		value: [
-			'table',
-			'table-striped',
-			'table-bordered',
-			'table-hover',
-			'table-sm',
-			'table-responsive'
-		]
-	},
-	/**
 	 * @property {number} pagination.viewmodel.lowerBounds
 	 * @description The index of the starting point for displaying table rows.
 	 */

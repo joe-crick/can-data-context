@@ -11,17 +11,19 @@
         class="can-data"
         {data}="rows"
         {headings}="headings"
-        {data-filters}="tableFilters">
-    <ul>
-        {{#each headings}}
-            {{#each cells}}
-                {{heading}}
-            {{/each}}
+        {set-data-filters}="tableFilters">
+
+    {{#each headings}}
+        {{#each cells}}
+            <span title="{{heading}}">{{heading}}</span>
         {{/each}}
-        {{#each filterData(data, dataFilters)}}
+    {{/each}}
+    {{#each filterData(data, dataFilters)}}
+        <ul>
             {{#each cells}}
                 <li>{{content}}</li>
             {{/each}}
-        {{/each}}
-    </ul>
+        </ul>
+    {{/each}}
+
 </can-data-context>

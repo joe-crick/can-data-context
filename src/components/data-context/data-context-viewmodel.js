@@ -8,10 +8,25 @@ export default DefineMap.extend({
 		type: '*'
 	},
 	dataFilters: {
-		type: '*'
+		Type: DefineMap,
+		value: {}
 	},
-	dataFormatters: {
-		type: '*'
+	setDataFilters: {
+		set(newVal){
+			if (this.dataFilters) {
+				const filters = {...this.dataFilters};
+				newVal.forEach((val, propName) => {
+						let oldVal = filters[`$${propName}`];
+						const newPropName = oldVal ? `_${propName}` : `$${propName}`;
+						const oldPropName = oldVal ? `$${propName}` : `_${propName}`;
+						delete filters[oldPropName];
+						filters[newPropName] = val;
+					}
+				);
+				this.dataFilters = filters;
+			}
+			return {};
+		}
 	},
 	filterData(records, dataFilters) {
 		const applyTableRowMiddleware = dataFilterMiddleware(dataFilters);
@@ -19,12 +34,5 @@ export default DefineMap.extend({
 		const rowFilterer = applyTableRowMiddleware(rowClone);
 		const filteredRows = rowFilterer.fold(() => rowClone, identity);
 		return filteredRows;
-	},
-	formatData(records, dataFormatters) {
-		const applyBodyCellMiddleware = dataFormatMiddleware(dataFormatters);
-		const displayRows = applyBodyCellMiddleware(records)
-			.fold(() => records, identity);
-
-		return displayRows;
 	}
 });

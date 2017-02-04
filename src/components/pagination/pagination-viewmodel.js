@@ -9,7 +9,7 @@ export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return [filterPagination(this.lowerBounds)(this.upperBounds)];
+			return {pagination: filterPagination(this.lowerBounds)(this.upperBounds)};
 		}
 	},
 	lowerBounds: {
@@ -29,7 +29,8 @@ export default DefineMap.extend({
 		value: 0
 	},
 	next() {
-		const increment = this.rowsPerPage;
+		// +1, go to the next in the set
+		const increment = this.rowsPerPage +1;
 		const lower = this.lowerBounds + increment;
 		if(lower < this.rowCount) {
 			batch.start();
@@ -39,7 +40,7 @@ export default DefineMap.extend({
 		}
 	},
 	prev() {
-		const decrement = this.rowsPerPage;
+		const decrement = this.rowsPerPage +1;
 		const lower = this.lowerBounds - decrement;
 		if(lower >= 0) {
 			batch.start();

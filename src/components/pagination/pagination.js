@@ -39,6 +39,8 @@ export default Component.extend({
     viewModel,
     events: {
         init: function init() {
+        	// Account for 0-based lower bounds on init
+			this.viewModel.rowsPerPage = this.viewModel.rowsPerPage -1;
             this.viewModel.upperBounds = this.viewModel.rowsPerPage;
         }
     }
