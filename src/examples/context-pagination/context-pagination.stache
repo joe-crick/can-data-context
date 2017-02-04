@@ -1,17 +1,22 @@
 <can-import from="can-table/components/pagination/"/>
+<can-import from="can-table/components/search/"/>
 <can-import from="can-table/components/data-context/"/>
+
+<can-table-search
+        {^table-filters}="@setDataFilters"
+/>
 
 <can-table-pagination
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
-        {^table-filters}="@tableFilters"/>
+        {^table-filters}="@setDataFilters"/>
 <div class="clearfix"></div><br/>
 <can-data-context
         class="can-data"
         {data}="rows"
         {headings}="headings"
-        {set-data-filters}="tableFilters">
+        {data-filters}="dataFilters">
 
     {{#each headings}}
         {{#each cells}}

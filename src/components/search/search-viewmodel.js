@@ -17,7 +17,7 @@ export default DefineMap.extend({
 	tableFilters: {
 		type: '*',
 		get() {
-			return [filterSearch(this.searchTerm)];
+			return {search: filterSearch(this.searchTerm)};
 		}
 	},
 	searchTerm: {

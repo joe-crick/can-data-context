@@ -11,23 +11,6 @@ export default DefineMap.extend({
 		Type: DefineMap,
 		value: {}
 	},
-	setDataFilters: {
-		set(newVal){
-			if (this.dataFilters) {
-				const filters = {...this.dataFilters};
-				newVal.forEach((val, propName) => {
-						let oldVal = filters[`$${propName}`];
-						const newPropName = oldVal ? `_${propName}` : `$${propName}`;
-						const oldPropName = oldVal ? `$${propName}` : `_${propName}`;
-						delete filters[oldPropName];
-						filters[newPropName] = val;
-					}
-				);
-				this.dataFilters = filters;
-			}
-			return {};
-		}
-	},
 	filterData(records, dataFilters) {
 		const applyTableRowMiddleware = dataFilterMiddleware(dataFilters);
 		const rowClone = arrayClone(records);

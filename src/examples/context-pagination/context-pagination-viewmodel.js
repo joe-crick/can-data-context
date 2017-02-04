@@ -1,14 +1,28 @@
 import DefineMap from 'can-define/map/';
 import List from 'can-define/List/';
+import filterUpdater from 'can-table/lib/filter-object-updater';
 
 export default DefineMap.extend({
 	/**
-	 * @property {Array | DefineList} pagination.viewmodel.tableFilters
+	 * @property {Array | DefineList} pagination.viewmodel.dataFilters
 	 * @description A set of table filter functions.
 	 */
-	tableFilters: {
-		type: '*',
-		value: []
+	dataFilters: {
+		Type: DefineMap,
+		value: {}
+	},
+	/**
+	 * @desc Data filter aggregator
+	 */
+	setDataFilters: {
+		Type: DefineMap,
+		set(newVal){
+			const filters = this.dataFilters;
+			if (filters) {
+				this.dataFilters = filterUpdater(filters, newVal);
+			}
+			return {};
+		}
 	},
 	/**
 	 * @property {number} pagination.viewmodel.lowerBounds
