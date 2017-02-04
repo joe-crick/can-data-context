@@ -1,8 +1,18 @@
-# Project Title
+# Can Data Context
 
-Playing around with Folktale, a little bit of Ramda, and an idea I had for working with tables that have
-all their data. I might update this _the proverbial someday_ to deal with tables that make requests
-for their data. Who knows..?
+This component creates a data context you can utilize to run a series of filters over a data source, while still
+providing a semantic stache view for the data. The component is view agnostic. It merely provides a wrapper around
+the view that enables the manipulation of the data used by the view. This makes it easy to add functionality to 
+the view like:
+
+ * pagination
+ * searching
+ * whatever your little heart desires
+ 
+But, mostly, this is me just playing around with Folktale as I learn FP, and mucking about with an idea I had 
+for working with tables that have all their data (as opposed to those who query a datasource for their data to 
+manipulate it---e.g., i.e, dumb tables that call the server to sort or paginate data, &c). I might update this 
+_the proverbial someday_ to deal with dumb tables. Who knows..?
 
 ## Getting Started
 
