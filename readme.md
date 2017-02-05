@@ -1,5 +1,7 @@
 # Can Data Context
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/joe-crick/can-data-context.svg)](https://greenkeeper.io/)
+
 This CanJS component creates a data context you can utilize to run a series of filters over a data source, while still
 providing a semantic stache view for the data. The component is view agnostic. It merely provides a wrapper around
 the view that enables the manipulation of the data used by the view. This makes it easy to add functionality to 
