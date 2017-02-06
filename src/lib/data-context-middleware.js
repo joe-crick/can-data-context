@@ -28,7 +28,7 @@ const getFilterMiddleware = middleWareSet => {
 			let rowCount = 0;
 			const weightedFunctions = sortFunctionsByWeight(functions);
 
-			// TODO: This whole thing with the sentinal straight up hackey... Improve!
+			// TODO: This whole thing with the sentinal is straight up hackey... Improve!
 			// setting state, even. Oy...
 			weightedFunctions.forEach(function (filterContainer) {
 				if (filterContainer.sentinel) {

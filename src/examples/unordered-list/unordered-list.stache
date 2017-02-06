@@ -11,6 +11,8 @@
         {lower-bounds}="lowerBounds"
         {rows-per-page}="rowsPerPage"
         {row-count}="rowCount"
+        {next-button-label}="'&gt;'"
+        {previous-button-label}="'&lt;'"
         {^table-filters}="@setDataFilters"/>
 <div class="clearfix"></div><br/>
 <can-data-context

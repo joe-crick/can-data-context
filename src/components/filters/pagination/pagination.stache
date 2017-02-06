@@ -1,7 +1,7 @@
 <div>
     page {{currentPage}} of {{totalPages}}
 </div>
-<div class="action-buttons pull-right">
-    <button class="btn btn-standard {{#if isPrevDisabled}}disabled{{/if}}" ($click)="prev">Prev</button>
-    <button class="btn btn-standard {{#if isNextDisabled}}disabled{{/if}}" ($click)="next">Next</button>
+<div class="action-buttons">
+    <button class="btn btn-standard btn-prev {{#if isPrevDisabled}}disabled{{/if}}" ($click)="prev">{{{previousButtonLabel}}}</button>
+    <button class="btn btn-standard btn-next {{#if isNextDisabled}}disabled{{/if}}" ($click)="next">{{{nextButtonLabel}}}</button>
 </div>

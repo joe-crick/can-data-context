@@ -75,6 +75,12 @@ export default DefineMap.extend({
 		type: 'boolean',
 		value: true
 	},
+	nextButtonLabel: {
+		value: 'Next'
+	},
+	previousButtonLabel: {
+		value: 'Previous'
+	},
 	next() {
 		const increment = this.rowsPerPage;
 		const lower = this.lowerBounds + increment;
